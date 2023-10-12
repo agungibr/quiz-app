@@ -3,12 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import Home from './screens/home';
 import Quiz from './screens/quiz';
 import Result from './screens/result';
+import MyStack from './navigation';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Home/>
-    </View>
+      <NavigationContainer>
+        <MyStack/>
+      </NavigationContainer>
   );
 };
 

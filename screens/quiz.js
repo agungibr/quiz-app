@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const Quiz = () => {
+const Quiz = ({navigation}) => {
     return (
         <View style={styles.container}>
          <View style={styles.top}>
@@ -27,6 +27,9 @@ const Quiz = () => {
             </TouchableOpacity>
             <TouchableOpacity>
                 <Text>LANJUT</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>navigation.navigate('Result')}>
+                <Text>SELESAI</Text>
             </TouchableOpacity>
          </View>
         </View>
