@@ -1,14 +1,36 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Title from '../components/title';
 
 const Home = () => {
     return (
         <View>
-            <Text>This is Home</Text>
+            <Title />
+            <View style={styles.bannerContainer}>
+                <Image 
+                 source={{
+                    url: "#"
+                }}
+                 style={styles.banner}
+                 resizeMode="contain"
+                />
+            </View>
+            <TouchableOpacity>
+                <Text>Mulai</Text>
+            </TouchableOpacity>
         </View>
     );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    banner:{
+        height: 300,
+        width: 300,
+    },
+    bannerContainer:{
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
