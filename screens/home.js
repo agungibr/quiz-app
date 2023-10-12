@@ -9,7 +9,7 @@ const Home = () => {
             <View style={styles.bannerContainer}>
                 <Image 
                  source={{
-                    url: "#"
+                    url: "https://iconscout.com/illustration/live-chat-5714059"
                 }}
                  style={styles.banner}
                  resizeMode="contain"
