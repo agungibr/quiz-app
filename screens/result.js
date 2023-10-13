@@ -36,4 +36,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    container:{
+        paddingTop: 40,
+        paddingHorizontal: 20,
+        height: '100',
+    },
 });
