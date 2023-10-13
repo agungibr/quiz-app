@@ -1,42 +1,54 @@
 import React from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const Quiz = ({navigation}) => {
+    const [questions, setQuestions] = useState();
+    const [ques, setQues] = useState(0);
+    const getQuiz=async() => {
+        const url = '#';
+        const ress = await fetch(url);
+        const data = await ress.json();
+        setQuestions(data.results);
+    };
+    useEffect(()=>{
+        getQuiz();
+    },[]);
     return (
         <View style={styles.container}>
-         <View style={styles.top}>
-            <Text styles={styles.question}>
-                Ini adalah Quiz
-            </Text>
-         </View>
-         <View style={style.options}>
-            <TouchableOpacity style={styles.optionButtom}>
-                <Text styles={styles.option}>Pilihan 1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.optionButtom}>
-                <Text styles={styles.option}>Pilihan 1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.optionButtom}>
-                <Text styles={styles.option}>Pilihan 1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.optionButtom}>
-                <Text styles={styles.option}>Pilihan 1</Text>
-            </TouchableOpacity>
-         </View>
-         <View style={styles.bottom}>
-            <TouchableOpacity styles={styles.button}>
-                <Text styles={styles.buttonText}>LEWATI</Text>
-            </TouchableOpacity>
+         {questions &&(
+            <View style={styles.parent}>
+                <View style={styles.top}>
+                    <Text style={styles.question}>
+                        Ini adalah Quiz
+                    </Text>
+                </View>
+                <View style={style.options}>
+                    <TouchableOpacity style={styles.optionButtom}>
+                        <Text styles={styles.option}>Pilihan 1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.optionButtom}>
+                        <Text styles={styles.option}>Pilihan 1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.optionButtom}>
+                        <Text styles={styles.option}>Pilihan 1</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.optionButtom}>
+                        <Text styles={styles.option}>Pilihan 1</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.bottom}>
+                    <TouchableOpacity styles={styles.button}>
+                        <Text styles={styles.buttonText}>LEWATI</Text>
+                    </TouchableOpacity>
 
-            <TouchableOpacity styles={styles.button}>
-                <Text styles={styles.buttonText}>LANJUT</Text>
-            </TouchableOpacity>
-
-            {/* <TouchableOpacity styles={styles.button}>
-                <Text styles={styles.buttonText}>END</Text>
-            </TouchableOpacity> */}
-         </View>
+                    <TouchableOpacity styles={styles.button}>
+                        <Text styles={styles.buttonText}>LANJUT</Text>
+                    </TouchableOpacity>
+                </View>
+            </View> 
+         )}
         </View>
     );
 };
@@ -89,5 +101,8 @@ const styles = StyleSheet.create({
         backgroundColor: '34A0A4',
         paddingHorizontal: 12,
         borderRadius: 12,
+    },
+    parent: {
+        height: '100',
     },
 });
