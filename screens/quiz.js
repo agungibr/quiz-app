@@ -7,7 +7,7 @@ const Quiz = ({navigation}) => {
     const [questions, setQuestions] = useState();
     const [ques, setQues] = useState(0);
     const getQuiz=async() => {
-        const url = '#';
+        const url = 'http://localhost:3000/api/quizzes';
         const ress = await fetch(url);
         const data = await ress.json();
         setQuestions(data.results);
@@ -25,12 +25,6 @@ const Quiz = ({navigation}) => {
                     </Text>
                 </View>
                 <View style={style.options}>
-                    <TouchableOpacity style={styles.optionButtom}>
-                        <Text styles={styles.option}>Pilihan 1</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.optionButtom}>
-                        <Text styles={styles.option}>Pilihan 1</Text>
-                    </TouchableOpacity>
                     <TouchableOpacity style={styles.optionButtom}>
                         <Text styles={styles.option}>Pilihan 1</Text>
                     </TouchableOpacity>
@@ -75,7 +69,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     button: {
-        backgroundColor: '1A759F',
+        backgroundColor: '#1A759F',
         padding: 12,
         paddingHorizontal: 16,
         borderRadius: 16,
@@ -98,7 +92,7 @@ const styles = StyleSheet.create({
     optionButtom: {
         paddingVertical: 12,
         marginVertical: 6,
-        backgroundColor: '34A0A4',
+        backgroundColor: '#34A0A4',
         paddingHorizontal: 12,
         borderRadius: 12,
     },
